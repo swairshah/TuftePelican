@@ -21,7 +21,7 @@
         rel="alternate" title="{{ SITENAME }} ALL Atom Feed" />
   {% endif %}
   {% if FEED_RSS %}
-  <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" 
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml"
         rel="alternate" title="{{ SITENAME }} RSS Feed" />
   {% endif %}
 
@@ -32,6 +32,30 @@
   <meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
   <meta property="og:url" content="{{ SITEURL }}"/>
   {% endblock OPEN_GRAPH_INFO %}
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+        TeX: {
+          Macros: {
+            RR: "{\\mathbb{R}}",
+            argmin: "{\\mathop{\\mathrm{arg\\,min}}}",
+            bold: ["{\\bf #1}",1]
+          }
+        },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+
+  <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
 {% endblock headers %}
 </head>
 
@@ -39,6 +63,9 @@
 <header>
   <h1 class="websitetitle"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
   <nav class="navmenu" id="navmenu">
+    {% for title, link in MENUITEMS %}
+    <li><a class="navitemlink" href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
+    {% endfor %}
     <li><a class="navitemlink" href="{{ SITEURL }}/archives.html">Archive</a></li>
     {% if DISPLAY_PAGES_ON_MENU %}
     {% for p in PAGES %}
