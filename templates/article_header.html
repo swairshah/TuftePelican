@@ -9,7 +9,7 @@
 {% else %}
 <a rel="bookmark"
    title="{{ article.title|striptags }} «{{ SITENAME }}»"
-   href="{{ article.url }}">
+   href="{{ SITEURL}}/{{ article.url }}">
    {{ article.title}}
 </a>
 {% endif %}

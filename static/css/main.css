@@ -8,7 +8,6 @@
 */
 
 /* Imports */
-@import url("pygment.css");
 @import url("typogrify.css");
 
 header nav li { display: inline;
@@ -39,6 +38,10 @@ article { position: relative;
 
 hr { margin-left: 0;
      width: 75%; }
+
+script {
+  display: none;
+}
 
 article div hr { margin-left: 0;
      width: 75%; }
@@ -170,15 +173,9 @@ input[type='checkbox'] {
   padding: 0.6rem;
 
   cursor: pointer;
-  border: 1px dashed black;
-
   border-radius: 7px;
   transition: all 0.25s ease-out;
 }
-
-/*.lbl-toggle:hover {
-  color: #7C5A0B;
-}*/
 
 .lbl-toggle::before {
   content: ' ';
@@ -206,6 +203,7 @@ input[type='checkbox'] {
 
 .toggle:checked + .lbl-toggle + .collapsible-content {
   max-height: none;
+  overflow: visible;
 }
 
 .toggle:checked + .lbl-toggle {
@@ -214,8 +212,8 @@ input[type='checkbox'] {
 }
 
 .collapsible-content .content-inner {
-  background: rgba(250, 224, 66, .2);
-  border-bottom: 1px solid rgba(250, 224, 66, .45);
+  /* background: rgba(250, 224, 66, .2); */
+  /* border-bottom: 1px solid rgba(250, 224, 66, .45); */
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   padding: .5rem 1rem;
@@ -230,4 +228,17 @@ input[type='checkbox'] {
 .framed {
   border: 1px black dashed;
   padding: 20px;
+}
+
+.fullwidth ul {
+  width: 100% !important;
+}
+
+#references ul {
+  font-size: 1.3rem;
+  padding-left: 0;
+}
+
+#references ul li {
+  list-style-type: none;
 }

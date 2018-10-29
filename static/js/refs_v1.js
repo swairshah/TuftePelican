@@ -1,0 +1,47 @@
+
+function doReferences() {
+    var btex = bibtexParse.toJSON(bibtex);
+    var cited = [];
+    var citeTags = document.querySelectorAll("dt-cite");
+
+    citeTags.forEach((el,n) => {
+      var key = el.getAttribute('key');
+      var btex_elem = btex.find(item => {return item.citationKey == key});
+      var template = `<label for="${key}" class="margin-toggle sidenote-number"></label><input type="checkbox"
+       id="${key}"
+       class="margin-toggle"/><span class="sidenote">${btex_elem.entryTags.author}  (${btex_elem.entryTags.year}) <a href="${btex_elem.entryTags.url}">"${btex_elem.entryTags.title}"</a>. <i>${btex_elem.entryTags.journal}</i>`;
+       if (btex_elem.entryTags.openaccess){
+         template += ` (<a href="${btex_elem.entryTags.openaccess}">Open access version</a>)`;
+       }
+       template += `.</span>`;
+      el.innerHTML = template;
+      if (cited.indexOf(btex_elem) == -1) {
+        cited.push(btex_elem);        
+      }
+    });
+
+    var noteTags = document.querySelectorAll("dt-note");
+    noteTags.forEach((el,n) => {
+      var key = el.getAttribute('key');
+      var text = el.innerHTML;
+      var template = `<label for="${key}" class="margin-toggle sidenote-number"></label><input type="checkbox"
+       id="${key}"
+       class="margin-toggle"/><span class="sidenote">${text}</span>`;
+      el.innerHTML = template;
+    });
+    
+    var refs = document.getElementById("references");
+    cited.sort(function(a, b){
+      if (a.citationKey > b.citationKey) {
+        return 1;
+      }
+      else if (a.citationKey < b.citationKey) {
+        return -1;
+      }
+      return 0;});
+    template = "<ul>";
+    cited.forEach(function(element){
+      template += `<li>${element.entryTags.author}  (${element.entryTags.year}) <a href="${element.entryTags.url}">"${element.entryTags.title}"</a>. <i>${element.entryTags.journal}</i></li>`;
+    });
+    refs.innerHTML = template + '</ul>';
+  }

@@ -36,36 +36,7 @@
   <meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
   <meta property="og:url" content="{{ SITEURL }}"/>
   {% endblock OPEN_GRAPH_INFO %}
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      extensions: ["tex2jax.js"],
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true
-      },
-        TeX: {
-          equationNumbers: { autoNumber: "AMS" },
-          Macros: {
-            RR: "{\\mathbb{R}}",
-            argmin: "{\\mathop{\\mathrm{arg\\,min}}}",
-            bold: ["{\\bf #1}",1]
-          }
-        },
-      "HTML-CSS": { availableFonts: ["TeX"] }
-    });
-  </script>
 
-  <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
-
-  <!-- for highlighting -->
-  <link rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
 
   <style type="text/css">
     .blue {
@@ -104,4 +75,5 @@
 </footer> -->
 <script id="dsq-count-scr" src="//isaythings.disqus.com/count.js" async></script>
 </body>
+
 </html>
