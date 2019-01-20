@@ -45,3 +45,18 @@ function doReferences() {
     });
     refs.innerHTML = template + '</ul>';
   }
+
+
+/*
+<p class="framed">
+    <b>Outline:</b><br/>
+    <span style="margin-left: 20px"><a href="#intro">1. Introduction.</a></span><br/>
+    <span style="margin-left: 20px"><a href="#example">2. Adaptive Three Operator Splitting.</a></span><br/>
+    <span style="margin-left: 20px"><a href="#convergence">3. Adaptive Frank-Wolfe.</a></span><br/>
+    <span style="margin-left: 20px"><a href="#convergence">4. Stochastic Optimization.</a></span><br/>
+</p>
+*/
+function doTOC() {
+  template = "<p class='framed'>";
+  var noteTags = document.querySelectorAll("dt-note");
+}
