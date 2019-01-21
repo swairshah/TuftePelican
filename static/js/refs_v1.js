@@ -63,7 +63,6 @@ function doTOC() {
         var text = element.innerHTML
         var sectTitle = `${i+1}. ${text}`
         element.innerHTML = sectTitle
-        console.log(element.innerHTML)
         template = template + `<span style="margin-left: 20px"><a href="#">${sectTitle}</a></span><br/>`
     })
 
