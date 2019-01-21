@@ -57,6 +57,16 @@ function doReferences() {
 </p>
 */
 function doTOC() {
-  template = "<p class='framed'>";
-  var noteTags = document.querySelectorAll("dt-note");
+    var template = "<p class='framed'><b>Outline:</b><br/>";
+    var sections = document.querySelectorAll("h2");
+    sections.forEach(function(element, i){
+        var text = element.innerHTML
+        var sectTitle = `${i+1}. ${text}`
+        element.innerHTML = sectTitle
+        console.log(element.innerHTML)
+        template = template + `<span style="margin-left: 20px"><a href="#">${sectTitle}</a></span><br/>`
+    })
+
+    var TOC = document.getElementById("TOC")
+    TOC.innerHTML = template + '</p>'
 }
