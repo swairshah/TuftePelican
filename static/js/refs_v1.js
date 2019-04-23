@@ -47,6 +47,20 @@ function doReferences() {
   }
 
 
+  function doNotes() {
+
+    var noteTags = document.querySelectorAll("dt-note");
+    noteTags.forEach((el,n) => {
+      var key = el.getAttribute('key');
+      var text = el.innerHTML;
+      var template = `<label for="${key}" class="margin-toggle sidenote-number"></label><input type="checkbox"
+       id="${key}"
+       class="margin-toggle"/><span class="sidenote">${text}</span>`;
+      el.innerHTML = template;
+    });
+  }
+
+
 /*
 <p class="framed">
     <b>Outline:</b><br/>
