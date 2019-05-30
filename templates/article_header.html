@@ -20,7 +20,7 @@
 {% if article.authors %}
 <address class="vcard author">
         By {% for author in article.authors %}
-                <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>{% if not loop.last %} and {% endif %}
+                {{ author }}{% if not loop.last %} and {% endif %}
         {% endfor %}.
 </address>
 {% endif %}
