@@ -41,7 +41,11 @@ function doReferences() {
       return 0;});
     template = "<ul>";
     cited.forEach(function(element){
-      template += `<li>${element.entryTags.author}  (${element.entryTags.year}) <a href="${element.entryTags.url}">"${element.entryTags.title}"</a>. <i>${element.entryTags.journal}</i></li>`;
+      var journal = element.entryTags.journal;
+      if (typeof journal == 'undefined') {
+        journal = element.entryTags.booktitle;
+      }
+      template += `<li>${element.entryTags.author}  (${element.entryTags.year}) <a href="${element.entryTags.url}">"${element.entryTags.title}"</a>. <i>${journal}</i></li>`;
     });
     refs.innerHTML = template + '</ul>';
   }
