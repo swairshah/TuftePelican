@@ -9,7 +9,13 @@ function doReferences() {
       var btex_elem = btex.find(item => {return item.citationKey == key});
       var template = `<label for="${key}" class="margin-toggle sidenote-number"></label><input type="checkbox"
        id="${key}"
-       class="margin-toggle"/><span class="sidenote">${btex_elem.entryTags.author}  (${btex_elem.entryTags.year}) <a href="${btex_elem.entryTags.url}">&ldquo;${btex_elem.entryTags.title}&rdquo;</a>. <i>${btex_elem.entryTags.journal}</i>`;
+       class="margin-toggle"/><span class="sidenote">${btex_elem.entryTags.author}  (${btex_elem.entryTags.year})`;
+      if (typeof btex_elem.entryTags.url == 'undefined') {
+        template += `&ldquo;${btex_elem.entryTags.title}&rdquo;. `;
+      } else {
+        template += `<a href="${btex_elem.entryTags.url}">&ldquo;${btex_elem.entryTags.title}&rdquo;</a>. `;
+      }
+      template += `<i>${btex_elem.entryTags.journal}</i>`;
        if (btex_elem.entryTags.openaccess){
          template += ` (<a href="${btex_elem.entryTags.openaccess}">Open access version</a>)`;
        }
@@ -45,7 +51,13 @@ function doReferences() {
       if (typeof journal == 'undefined') {
         journal = element.entryTags.booktitle;
       }
-      template += `<li>${element.entryTags.author}  (${element.entryTags.year}) <a href="${element.entryTags.url}">&ldquo;${element.entryTags.title}&rdquo;</a>. <i>${journal}</i></li>`;
+      template += `<li>${element.entryTags.author}  (${element.entryTags.year})`
+      if (typeof element.entryTags.url == 'undefined') {
+        template += `&ldquo;${element.entryTags.title}&rdquo;.`;
+       } else {
+        template += `<a href="${element.entryTags.url}">&ldquo;${element.entryTags.title}&rdquo;</a>. `;
+       }
+       template += `<i>${journal}</i></li>`;
     });
     refs.innerHTML = template + '</ul>';
   }
