@@ -242,3 +242,7 @@ input[type='checkbox'] {
 #references ul li {
   list-style-type: none;
 }
+
+address {
+  font-size: 1.3rem;
+}
