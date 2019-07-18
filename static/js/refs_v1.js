@@ -53,7 +53,7 @@ function doReferences() {
       }
       template += `<li>${element.entryTags.author}  (${element.entryTags.year}) `
       if (typeof element.entryTags.url == 'undefined') {
-        template += `&ldquo;${element.entryTags.title}&rdquo;.`;
+        template += `&ldquo;${element.entryTags.title}&rdquo;. `;
        } else {
         template += `<a href="${element.entryTags.url}">&ldquo;${element.entryTags.title}&rdquo;</a>. `;
        }
