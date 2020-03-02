@@ -51,7 +51,7 @@ function doReferences() {
       if (typeof journal == 'undefined') {
         journal = element.entryTags.booktitle;
       }
-      template += `<li>${element.entryTags.author}  (${element.entryTags.year})`
+      template += `<li id="${element.citationKey}">${element.entryTags.author}  (${element.entryTags.year})`
       if (typeof element.entryTags.url == 'undefined') {
         template += `&ldquo;${element.entryTags.title}&rdquo;.`;
        } else {
