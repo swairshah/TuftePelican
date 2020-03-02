@@ -9,7 +9,7 @@ function doReferences() {
       var btex_elem = btex.find(item => {return item.citationKey == key});
       var template = `<label for="${key}" class="margin-toggle sidenote-number"></label><input type="checkbox"
        id="${key}"
-       class="margin-toggle"/><span class="sidenote">${btex_elem.entryTags.author}  (${btex_elem.entryTags.year})`;
+       class="margin-toggle"/><span class="sidenote">${btex_elem.entryTags.author}  (${btex_elem.entryTags.year}) `;
       if (typeof btex_elem.entryTags.url == 'undefined') {
         template += `&ldquo;${btex_elem.entryTags.title}&rdquo;. `;
       } else {
@@ -52,8 +52,9 @@ function doReferences() {
         journal = element.entryTags.booktitle;
       }
       template += `<li id="${element.citationKey}">${element.entryTags.author}  (${element.entryTags.year})`
+
       if (typeof element.entryTags.url == 'undefined') {
-        template += `&ldquo;${element.entryTags.title}&rdquo;.`;
+        template += `&ldquo;${element.entryTags.title}&rdquo;. `;
        } else {
         template += `<a href="${element.entryTags.url}">&ldquo;${element.entryTags.title}&rdquo;</a>. `;
        }
