@@ -10,10 +10,15 @@
 {% block content %}
 <article>
 {% include "article_header.html" %}
+<div id="TOC"> </div>
 {{ article.content }}
 </article>
-<div id="disqus_thread"></div>
+<!--div id="disqus_thread"></div-->
 <script>
+doTOC();
+doNotes();    
+</script>
+<!--script>
 
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -30,6 +35,6 @@ s.src = 'https://isaythings.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
-</script>
+</script-->
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 {% endblock content%}
