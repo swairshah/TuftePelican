@@ -66,7 +66,7 @@ function doReferences() {
 
   function doNotes() {
 
-    var noteTags = document.querySelectorAll("dt-note");
+    var noteTags = document.querySelectorAll(".dt-note");
     noteTags.forEach((el,n) => {
       var key = el.getAttribute('key');
       var text = el.innerHTML;
